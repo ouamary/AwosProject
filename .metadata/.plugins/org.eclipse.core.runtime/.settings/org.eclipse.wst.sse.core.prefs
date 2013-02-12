@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 task-tag-projects-already-scanned=AWOS_SENECA8_20130204,Servers
+=======
+task-tag-projects-already-scanned=AWOS
+>>>>>>> 92a665d8b44563417af6e764b60216951bb6d7b1

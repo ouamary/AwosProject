@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 org.eclipse.jst.jsp.core.taglib.TaglibIndex=DIRTY
+=======
+org.eclipse.jst.jsp.core.taglib.TaglibIndex=CLEAN
+>>>>>>> 92a665d8b44563417af6e764b60216951bb6d7b1

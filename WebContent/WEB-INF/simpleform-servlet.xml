@@ -46,6 +46,7 @@
 				<value>fr.dauphine.spring.bo.Categorie</value>
 				<value>fr.dauphine.spring.bo.Commande</value>
 				<value>fr.dauphine.spring.bo.Item</value>
+				<value>fr.dauphine.spring.bo.Administrateur</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -101,6 +102,18 @@
 	<bean id="panier" class="fr.dauphine.spring.bo.Panier" scope="session">
        <aop:scoped-proxy/>
    </bean>
+	
+	<bean id="utilisateurDAO" class="fr.dauphine.spring.dao.impl.UtilisateurDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="administrateurDAO" class="fr.dauphine.spring.dao.impl.AdministrateurDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
 	
 	<!-- Configure the multipart resolver -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

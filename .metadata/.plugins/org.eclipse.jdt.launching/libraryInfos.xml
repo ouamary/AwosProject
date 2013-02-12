@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+<<<<<<< HEAD
 <libraryInfo home="C:\Program Files\Java\jre7" version="1.7.0_09">
+=======
+<libraryInfo home="C:\Program Files\Java\jre7" version="1.7.0_10">
+>>>>>>> 92a665d8b44563417af6e764b60216951bb6d7b1
 <bootpath>
 <entry path="C:\Program Files\Java\jre7\lib\resources.jar"/>
 <entry path="C:\Program Files\Java\jre7\lib\rt.jar"/>

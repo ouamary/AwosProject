@@ -23,6 +23,7 @@ public class Panier  extends BO implements Serializable, Comparable {
 	
 	public void setTotal(BigDecimal total) {
 		this.total = total;
+		
 	}
 
 	public void viderPanier(){

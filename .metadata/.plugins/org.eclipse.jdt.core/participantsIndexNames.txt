@@ -1,0 +1,7 @@
+INDEX VERSION 1.126
+C:\Users\Yacin\Documents\Cours\Java\AWOS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1650211559.index
+\AWOS\src
+C:\Users\Yacin\Documents\Cours\Java\AWOS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2668920986.index
+\AWOS\src
+C:\Users\Yacin\Documents\Cours\Java\AWOS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1374338782.index
+\AWOS\src
