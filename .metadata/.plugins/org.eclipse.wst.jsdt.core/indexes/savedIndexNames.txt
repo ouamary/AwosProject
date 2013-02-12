@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+C:\Users\Camille\Desktop\AWOS_02\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1444573425.index
+2609268257.index
+668272682.index
+387375163.index
+1887556706.index
