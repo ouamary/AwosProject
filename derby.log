@@ -1,0 +1,11 @@
+Sat Feb 09 23:08:51 CET 2013 : Apache Derby Serveur réseau - 10.8.2.2 - (1181258) démarré et prêt à accepter les connexions sur le port 1527
+----------------------------------------------------------------
+Sat Feb 09 23:12:17 CET 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013c-c100-f344-00000000002e 
+on database directory C:\Users\Jonathan\Eclipse-Juno-Workspace\AwosProject\AWOS Derby  with class loader sun.misc.Launcher$AppClassLoader@1ef6a746 
+Loaded from file:/C:/Users/Jonathan/Desktop/eclipse/plugins/org.apache.derby.core_10.8.2/derby.jar
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_39-b04
+user.dir=C:\Users\Jonathan\Eclipse-Juno-Workspace\AwosProject
+derby.system.home=.
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+    
+    <context:component-scan base-package="fr.dauphine.spring" />
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    
+    <!-- Référencement d'une source de données -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>org.apache.derby.jdbc.ClientDriver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:derby://localhost:1527/AWOS Derby;create=true</value>
+		</property>
+		<property name="username">
+			<value>localhost</value>
+		</property>
+		<property name="password">
+			<value>root</value>
+		</property>
+	</bean>
+	
+	<!-- Configuration - Hibernate 4 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource"/>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>fr.dauphine.spring.bo.Client</value>
+				<value>fr.dauphine.spring.bo.Produit</value>
+				<value>fr.dauphine.spring.bo.Categorie</value>
+				<value>fr.dauphine.spring.bo.Commande</value>
+				<value>fr.dauphine.spring.bo.Item</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- Configuration des transactions -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager" >
+	  	<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<!-- ATTENTION, au démarrage du serveur, la console peut indiqué une classe non trouvée du type AOPAppliance.  
+	Il faut alors retrouver et ajouter dans WEB-INF\lib le jar com.springsource.org.aopalliance-1.0.0.jar -->
+	
+	<!-- Configuration du DAO -->
+	<bean id="clientDAO" class="fr.dauphine.spring.dao.impl.ClientDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="produitDAO" class="fr.dauphine.spring.dao.impl.ProduitDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="categorieDAO" class="fr.dauphine.spring.dao.impl.CategorieDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="commandeDAO" class="fr.dauphine.spring.dao.impl.CommandeDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="itemDAO" class="fr.dauphine.spring.dao.impl.ItemDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="panier" class="fr.dauphine.spring.bo.Panier" scope="session">
+       <aop:scoped-proxy/>
+   </bean>
+	
+	<!-- Configure the multipart resolver -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <property name="maxUploadSize" value="100000"/>
+    </bean>
+</beans>

@@ -1,0 +1,26 @@
+
+___________ AWOS Project _________________________________________________________________________
+
+======================Fichier de description de la branche "PreMergeBranch"=======================
+
+Il s'agit de la branche créée pour initialiser le repository git du Projet AWOS.
+
+Dans l'attente de la finalisation de la partie login par Yacin, cette version du projet contient :
+
+### Front Office ###
+  + Navigation sur les produits
+  + Ajout des produits au panier
+  + Gestion du panier : modification des quantités de produits et vidage du panier
+  - Outil de recherche de produits
+  - Login de clients
+  - Style du site : thème et CSS
+  - Gestion du panier : contrôle des quantités négatives d'articles
+
+### Back Office ##
+  + Ajout, modification et suppression : Produits, Catégories, Client
+  + Choix du thème
+  - Statistiques de gestion
+  - Gestion des promotions
+  - Outil de recherche
+
+____________________________________________  Le 9 Février 2013 ___________________________________
