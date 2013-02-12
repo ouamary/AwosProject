@@ -1,0 +1,6 @@
+INDEX VERSION 1.122+C:\Users\Yacin\Documents\Cours\Java\AWOS\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4095312190.index
+4031179973.index
+1710732241.index
+1565313134.index
+2387156961.index
