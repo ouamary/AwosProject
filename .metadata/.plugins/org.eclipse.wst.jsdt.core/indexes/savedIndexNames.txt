@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+INDEX VERSION 1.122+C:\Users\Camille\Desktop\AWOS_02\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1444573425.index
+2609268257.index
+668272682.index
+387375163.index
+1887556706.index
+=======
+INDEX VERSION 1.122+C:\Users\Yacin\Documents\Cours\Java\AWOS\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4095312190.index
+4031179973.index
+1710732241.index
+1565313134.index
+2387156961.index
+>>>>>>> 92a665d8b44563417af6e764b60216951bb6d7b1
