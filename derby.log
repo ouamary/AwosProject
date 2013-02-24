@@ -1,17 +1,15 @@
-Tue Feb 12 21:26:42 CET 2013 : Apache Derby Serveur réseau - 10.8.2.2 - (1181258) démarré et prêt à accepter les connexions sur le port 1527
+Sun Feb 24 17:18:17 CET 2013 : Apache Derby Serveur réseau - 10.8.2.2 - (1181258) démarré et prêt à accepter les connexions sur le port 1527
 ----------------------------------------------------------------
-Tue Feb 12 21:27:10 CET 2013:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013c-d016-8607-00000000002e 
-on database directory C:\Users\Jonathan\Eclipse-Juno-Workspace\AwosProject\AWOS Derby  with class loader sun.misc.Launcher$AppClassLoader@425224ee 
-Loaded from file:/C:/Users/Jonathan/Desktop/eclipse/plugins/org.apache.derby.core_10.8.2/derby.jar
-java.vendor=Sun Microsystems Inc.
-java.runtime.version=1.6.0_39-b04
-user.dir=C:\Users\Jonathan\Eclipse-Juno-Workspace\AwosProject
+Sun Feb 24 17:25:34 CET 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.2.2 - (1181258): instance a816c00e-013d-0cff-6578-00000000002e 
+on database directory C:\Users\Yacin\git\AwosProject\AWOS Derby  with class loader sun.misc.Launcher$AppClassLoader@4d30c132 
+Loaded from file:/C:/Users/Yacin/Documents/Cours/Java/Eclipse/plugins/org.apache.derby.core_10.8.2/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_10-b18
+user.dir=C:\Users\Yacin\git\AwosProject
 derby.system.home=.
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Tue Feb 12 21:38:58 CET 2013: Shutting down Derby engine
-----------------------------------------------------------------
-Tue Feb 12 21:38:58 CET 2013:
-Shutting down instance a816c00e-013c-d016-8607-00000000002e on database directory C:\Users\Jonathan\Eclipse-Juno-Workspace\AwosProject\AWOS Derby with class loader sun.misc.Launcher$AppClassLoader@425224ee 
-----------------------------------------------------------------
+Sun Feb 24 19:45:37 CET 2013:
+Shutting down instance a816c00e-013d-0cff-6578-00000000002e on database directory C:\Users\Yacin\git\AwosProject\AWOS Derby with class loader sun.misc.Launcher$AppClassLoader@4d30c132 
+Sun Feb 24 19:45:37 CET 2013 Thread[DRDAConnThread_4,5,main] (DATABASE = AWOS Derby), (DRDAID = {126}), Database 'AWOS Derby' shutdown.
