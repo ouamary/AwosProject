@@ -18,24 +18,11 @@
         <div class="span10 body-container">
 
             <div class="row-fluid">
-                <div class="span12">
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Home</a> <span class="divider">/</span>
-                        </li>
-                        <li>
-                            <a href="#">Tables</a> <span class="divider">/</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row-fluid">
 
                 <div class="span6">
                     <section class="utopia-widget">
                         <div class="utopia-widget-title">
-                            <img src="./assets/paragraph_justify.png" class="utopia-widget-icon">
+                            <img src="Back-Office/assets/paragraph_justify.png" class="utopia-widget-icon">
                             <span>static table # 1</span>
                         </div>
 
@@ -88,7 +75,7 @@
                 <div class="span6">
                     <section class="utopia-widget">
                         <div class="utopia-widget-title">
-                            <img src="./assets/paragraph_justify.png" class="utopia-widget-icon">
+                            <img src="Back-Office/assets/paragraph_justify.png" class="utopia-widget-icon">
                             <span>static table # 2</span>
                         </div>
 

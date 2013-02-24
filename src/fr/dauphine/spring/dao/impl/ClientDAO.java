@@ -2,7 +2,6 @@ package fr.dauphine.spring.dao.impl;
 
 
 
-import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.Session;

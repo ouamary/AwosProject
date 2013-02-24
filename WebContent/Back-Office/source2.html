@@ -1,0 +1,64 @@
+
+<div class="row-fluid">
+
+	<div class="span12">
+		<section class="utopia-widget">
+			<div class="utopia-widget-title">
+				<img src="./assets/paragraph_justify.png" class="utopia-widget-icon">
+				<span>Artistes</span>
+			</div>
+
+			<div class="utopia-widget-content">
+
+				<div class="row-fluid">
+					<div class="span3 offset9">
+						<a class="btn" href="./Back-Office/artiste.action"> <i
+							class="icon-plus icon-white"></i> Ajouter
+						</a>
+					</div>
+				</div>
+
+				<form:form commandName="adminForm" action="adminArtiste.action"
+					method="POST">
+					<form:errors path="*" />
+					<table class="table table-striped table-bordered">
+
+						<thead>
+							<tr>
+								<th><input class="utopia-check-all" type="checkbox"></th>
+								<th>Nom</th>
+								<th>Bio</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+
+						<tbody>							
+							<c:forEach var="a" items="${artistes}">
+								<tr>
+									<td><input class="chkbox" type="checkbox" name="checkboxes" value="${a.id}"></td>
+									<td>${a.nom}</td>
+									<td>${a.bio}</td>
+									<td><a href="./Back-Office/artiste.action?idA=${a.id}" class="edit">
+											<img src="img/icons/pencil.png" alt="Edit">
+										</a>
+										<a href="javascript:void(0)" class="addpic">
+											<img src="img/icons/camera.png" alt="Add pic">
+										</a>
+									</td>
+								</tr>
+							</c:forEach>
+
+						</tbody>
+					</table>
+
+					<a class="btn btn-danger" href="javascript:this.form.submit();"> <i
+						class="icon-trash icon-white"></i> Supprimer
+					</a>
+					
+					<input type="submit" class="btn span4 icon-trash icon-white" value="Supprimer">
+					
+					</form:form>
+			</div>
+		</section>
+	</div>
+</div>

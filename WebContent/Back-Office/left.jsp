@@ -16,9 +16,15 @@
                 </div>
 
                 <div class="nav-collapse collapse leftmenu">
-
+					<!-- Ajouter class="current" à l'élément courant -->
                     <ul>
-                        <li class="current"><a class="dashboard smronju" href="./assets_files/assets.htm" title="Dashboard"><span><em>Dashboard</em></span></a></li>
+                        <li><a class="dashboard smronju" href="./" title="Dashboard"><span><em>Dashboard</em></span></a></li>
+                        <li><a class="list" href="javascript:void(0)" title="Artistes"><span><em>Artistes</em></span></a>
+                            <ul class="dropdown" style="left: 303px;">
+                                <li><a class="tables" href="../artiste.action" title="Ajouter"><span><em>Ajouter</em></span></a></li>
+                                <li><a class="widgets smronju" href="../adminArtiste.action" title="Tableau"><span><em>Tableau</em></span></a></li>
+                            </ul>
+                        </li>
                         <li><a class="list" href="javascript:void(0)" title="Tables"><span><em>Tables</em></span></a>
                             <ul class="dropdown" style="left: 303px;">
                                 <li><a class="tables" href="http://utopiaadmin.themio.net/tables.html" title="Tables"><span><em>Tables</em></span></a>

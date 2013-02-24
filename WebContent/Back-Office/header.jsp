@@ -6,7 +6,7 @@
 
                 <div class="header-wrapper">
 
-                    <a href="http://utopiaadmin.themio.net/dashboard.html#" class="utopia-logo"><img src="./assets/utopia-logo.png" alt="Utopia"></a>
+                    <a href="http://utopiaadmin.themio.net/dashboard.html#" class="utopia-logo"><img src="Back-Office/assets/utopia-logo.png" alt="Utopia"></a>
 
                     <div class="header-right">
 
@@ -14,7 +14,7 @@
 
                         <div class="search-panel header-divider">
                             <div class="search-box">
-                                <img src="./assets/zoom.png" alt="Search">
+                                <img src="Back-Office/assets/zoom.png" alt="Search">
                                 <form action="" method="post">
                                     <input type="text" name="search" placeholder="search">
                                 </form>
@@ -113,7 +113,7 @@
 
                         <div class="user-panel header-divider">
                             <div class="user-info">
-                                <img src="./assets/user.png" alt="">
+                                <img src="Back-Office/assets/user.png" alt="">
                                 <a href="http://utopiaadmin.themio.net/dashboard.html#">Admin user</a>
                             </div>
 

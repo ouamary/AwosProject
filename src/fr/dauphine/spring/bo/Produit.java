@@ -2,11 +2,17 @@ package fr.dauphine.spring.bo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
@@ -31,6 +37,17 @@ public class Produit  extends BO implements Serializable, Comparable {
 	@ManyToOne(fetch=FetchType.EAGER)
     @PrimaryKeyJoinColumn	// Note : le champ auto généré catégorie_id n'est pas alimenté par spring. on le remplace par un champ géré manuellement
 	private Categorie categorie;
+	
+	@ManyToMany(
+        targetEntity=Artiste.class,
+        cascade={CascadeType.PERSIST, CascadeType.MERGE}
+    )
+    @JoinTable(
+        name="PRODUIT_ARTISTE",
+        joinColumns=@JoinColumn(name="PRODUIT_ID"),
+        inverseJoinColumns=@JoinColumn(name="ARTISTE_ID")
+    )
+	private List<Artiste> artistes = new ArrayList<Artiste>();
 	
 	@Column(length=100)
 	private String photoType;

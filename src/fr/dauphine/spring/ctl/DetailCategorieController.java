@@ -31,7 +31,7 @@ public class DetailCategorieController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String affichage(@RequestParam("idC") String idC, ModelMap model) {
 		model.addAttribute("categorie", cDAO.get(idC));
-		
+
 		return "./Back-Office/detailCategorie";
 	}
 		

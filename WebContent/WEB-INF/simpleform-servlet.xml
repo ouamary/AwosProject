@@ -47,6 +47,7 @@
 				<value>fr.dauphine.spring.bo.Commande</value>
 				<value>fr.dauphine.spring.bo.Item</value>
 				<value>fr.dauphine.spring.bo.Administrateur</value>
+				<value>fr.dauphine.spring.bo.Artiste</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -110,6 +111,12 @@
 	</bean>
 	
 	<bean id="administrateurDAO" class="fr.dauphine.spring.dao.impl.AdministrateurDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="artisteDAO" class="fr.dauphine.spring.dao.impl.ArtisteDAO">
 		<property name="sessionFactory">
 			<ref local="sessionFactory"/>
 		</property> 

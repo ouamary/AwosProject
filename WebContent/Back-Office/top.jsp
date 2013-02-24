@@ -10,14 +10,15 @@
     <link href="http://utopiaadmin.themio.net/css/utopia-white.css" rel="stylesheet">
     <link href="http://utopiaadmin.themio.net/css/utopia-responsive.css" rel="stylesheet">
     <link href="http://utopiaadmin.themio.net/css/validationEngine.jquery.css" rel="stylesheet">
+    <link href="Back-Office/assets/jquery.fileupload-ui.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <script type="text/javascript" src="./assets/jquery.min.js"></script>
-    <script type="text/javascript" src="./assets/jquery.cookie.js"></script>
+    <script type="text/javascript" src="Back-Office/assets/jquery.min.js"></script>
+    <script type="text/javascript" src="Back-Office/assets/jquery.cookie.js"></script>
     <script type="text/javascript">
         if($.cookie("css")) {
             $('link[href*="utopia-white.css"]').attr("href",$.cookie("css"));
