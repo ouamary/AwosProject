@@ -16,6 +16,7 @@
 
         <!-- Body start -->
 		<div class="span10">
+			<a href="${boActionURL}admin/artiste" class="btn">Lien</a>
 
 			<section id="formElement" class="utopia-widget utopia-form-box section">
 			    <div class="utopia-widget-title">

@@ -14,9 +14,11 @@
     <div class="row-fluid">
 
         <jsp:include page="left.jsp"/>
-
+        	
         <!-- Body start -->		
 		<div class="span10 body-container">
+		
+			<a href="${boActionURL}artiste" class="btn">Lien</a>
 
 			<div class="row-fluid">
 				<section class="utopia-widget">

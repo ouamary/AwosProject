@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -42,5 +48,9 @@
 		    margin-left: -90px!important;
 		}
     </style>
+    
+    <c:set var="boURL" value="/AwosProject/bo/" scope="application"/>
+    <c:set var="boAssetsURL" value="${boURL}assets/" scope="application"/>
+    <c:set var="boActionURL" value="${boURL}action/" scope="application"/>
 </head>
 <body>
