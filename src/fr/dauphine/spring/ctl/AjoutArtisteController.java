@@ -3,10 +3,12 @@ package fr.dauphine.spring.ctl;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +20,6 @@ import fr.dauphine.spring.dao.impl.ArtisteDAO;
 import fr.dauphine.spring.upload.UploadItem;
 
 @Controller
-@RequestMapping("artiste") 
 public class AjoutArtisteController {
 
 	@Autowired
@@ -27,23 +28,27 @@ public class AjoutArtisteController {
 	
 	private String uploadFolderPath;
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public String affichage(@RequestParam(value="idA", required=false) String idA, ModelMap model, HttpServletRequest request) {
-				
-		if(!request.getParameterMap().containsKey("idA")) {
-			model.addAttribute("artiste", new Artiste());
-			model.addAttribute("artistes", DAO.listeArtistes());
-			model.addAttribute("edit", 0);
-		} else {
-			model.addAttribute("artiste", DAO.get(idA));
-			model.addAttribute("edit", 1);
-			model.addAttribute("photo", new UploadItem());
-		}
+	@RequestMapping(value="/artiste/{id}", method=RequestMethod.GET)
+	public String edition(@PathVariable(value="id") String id, ModelMap model, HttpServletRequest request) {
+		
+		model.addAttribute("artiste", DAO.get(id));
+		model.addAttribute("edit", 1);
+		model.addAttribute("photo", new UploadItem());
+			
+		return "./Back-Office/ajoutArtiste";
+	}
+	
+	@RequestMapping(value="/artiste", method=RequestMethod.GET)
+	public String ajout(ModelMap model, HttpServletRequest request) {
+		
+		model.addAttribute("artiste", new Artiste());
+		model.addAttribute("artistes", DAO.listeArtistes());
+		model.addAttribute("edit", 0);
 		
 		return "./Back-Office/ajoutArtiste";
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(value="/artiste", method=RequestMethod.POST)
 	public String validation(@ModelAttribute("artiste") Artiste artiste, BindingResult result, @RequestParam(value="fichier", required=false) MultipartFile fichier, HttpServletRequest request) throws Exception {
 		validator.validate(artiste, result);
 		
@@ -66,7 +71,7 @@ public class AjoutArtisteController {
 		
 		DAO.save(artiste);
 
-		return "redirect:adminArtiste.action";
+		return "redirect:/bo/action/admin/artiste";
     }
 	
 	public String getUploadFolderPath() {

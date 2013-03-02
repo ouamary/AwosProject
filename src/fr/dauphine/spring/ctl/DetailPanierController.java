@@ -13,7 +13,7 @@ import fr.dauphine.spring.bo.Client;
 import fr.dauphine.spring.bo.Panier;
 
 @Controller
-@RequestMapping("detailPanier")
+@RequestMapping("detail/panier")
 public class DetailPanierController {
 	
 	@Autowired
@@ -28,6 +28,6 @@ public class DetailPanierController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String majPanier(BindingResult result) throws Exception {
-		return "redirect:./indexController.action";
+		return "redirect:/fo/action/index";
     }
 }

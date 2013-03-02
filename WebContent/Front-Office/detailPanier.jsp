@@ -48,7 +48,7 @@
 <title>AWOS Foods - Votre panier</title>
 </head>
 <body>
-	<div><jsp:include page="top.jsp" /></div>
+	<div><jsp:include page="header.jsp" /></div>
 	<div><jsp:include page="left.jsp" /></div>
 	<div id="container">
      	<div id="mainContent">
@@ -84,8 +84,7 @@
 			</c:choose>
 
 		</div>
-	</div>	
-   	<div><jsp:include page="right.jsp" /></div>
+	</div>
   	<div><jsp:include page="footer.jsp"/></div>
 </body>
 </html>

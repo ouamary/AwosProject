@@ -11,21 +11,12 @@
 <title>Recrutement</title>
 </head>
 <body>
-	<div><jsp:include page="top.jsp" /></div>
 	<div><jsp:include page="left.jsp" /></div>
 	<div id="container">
-			    
-     	<div id="mainContent">
-     	     	
-			<h2>Nos offres d'emploi</h2>
-		
+	 	<div id="mainContent">
+    		<h2>Nos offres d'emploi</h2>
 				C'est la crise, retentez votre chance le mois prochain
-			
 		</div>
-	
-	</div>	
-   	<div><jsp:include page="right.jsp" /></div>
-  	<div><jsp:include page="footer.jsp"/></div>
-
+	</div>
 </body>
 </html>

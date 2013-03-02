@@ -16,7 +16,7 @@ import fr.dauphine.spring.dao.impl.ClientDAO;
 import fr.dauphine.spring.forms.AdminForm;
 
 @Controller
-@RequestMapping("adminClient") // CETTE FOIS CI : MAPPING SUR LE NOM DE L'ACTION AU NIVEAU DE LA CLASSE
+@RequestMapping("admin/client")
 public class AdminClientController {
 
 	@Autowired
@@ -53,6 +53,6 @@ public class AdminClientController {
 			}
 		}//*/
 		
-		return "redirect:adminClient.action";
+		return "redirect:/bo/action/admin/client";
     }
 }

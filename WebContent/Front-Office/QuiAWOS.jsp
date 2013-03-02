@@ -11,25 +11,16 @@
 <title>Qui sommes-nous ?</title>
 </head>
 <body>
-	<div><jsp:include page="top.jsp" /></div>
+	<div><jsp:include page="header.jsp" /></div>
 	<div><jsp:include page="left.jsp" /></div>
 	<div id="container">
-	
 		<div class="box">Les messages s'affichent ici</div>
-		    
-     	<div id="mainContent">
-     	
-     	
-			<h2>Qui sommes-nous?</h2>
-		
+	 	<div id="mainContent">
+    		<h2>Qui sommes-nous?</h2>
 				We are AWOS Foods !
-			
 		</div>
-	
 	</div>	
-   	<div><jsp:include page="right.jsp" /></div>
-  	<div><jsp:include page="footer.jsp"/></div>
-
+   	<div><jsp:include page="footer.jsp"/></div>
 </body>
 </html>
 

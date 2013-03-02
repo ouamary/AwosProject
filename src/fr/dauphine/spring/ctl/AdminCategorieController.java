@@ -16,7 +16,7 @@ import fr.dauphine.spring.dao.impl.CategorieDAO;
 import fr.dauphine.spring.forms.AdminForm;
 
 @Controller
-@RequestMapping("adminCategorie")
+@RequestMapping("admin/categorie")
 public class AdminCategorieController {
 	
 	@Autowired
@@ -50,6 +50,6 @@ public class AdminCategorieController {
 			}
 		}//*/
 		
-		return "redirect:adminCategorie.action";
+		return "redirect:/bo/action/admin/categorie";
     }
 }

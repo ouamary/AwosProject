@@ -20,7 +20,7 @@ import fr.dauphine.spring.dao.impl.CommandeDAO;
 import fr.dauphine.spring.editor.ClientEditor;
 
 @Controller
-@RequestMapping("detailCommande")
+@RequestMapping("detail/commande")
 public class DetailCommandeController {
 
 	@Autowired
@@ -54,7 +54,7 @@ public class DetailCommandeController {
 		// TODO : Pourquoi le champ Client (VARCHAR[255]) reste alors que la jointure marche?
 		comDAO.save(commande);		
 		ItemController.setCommande(commande);
-		return "redirect:./itemController.action";
+		return "redirect:/fo/action/item";
     }
 
 	@InitBinder

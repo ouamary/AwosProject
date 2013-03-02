@@ -18,7 +18,7 @@ import fr.dauphine.spring.dao.impl.ArtisteDAO;
 import fr.dauphine.spring.forms.AdminForm;
 
 @Controller
-@RequestMapping("adminArtiste")
+@RequestMapping("admin/artiste")
 public class AdminArtisteController {
 
 	@Autowired
@@ -52,6 +52,6 @@ public class AdminArtisteController {
 			}
 		}
 		
-		return "redirect:adminArtiste.action";
+		return "redirect:/bo/action/admin/artiste";
     }
 }

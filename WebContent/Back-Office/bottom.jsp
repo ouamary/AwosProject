@@ -14,14 +14,12 @@
 		<script type="text/javascript" src="Back-Office/assets/jquery.validationEngine-en.js"></script>
 		<script type="text/javascript" src="Back-Office/assets/maskedinput.js"></script>
 		<script type="text/javascript" src="Back-Office/assets/chosen.jquery.js"></script>
-		<script type="text/javascript" src="Back-Office/assets/js"></script>
-		<script type="text/javascript" src="Back-Office/assets/main.js"></script>
 		<script type="text/javascript" src="Back-Office/assets/header.js"></script>
 		<script type="text/javascript" src="Back-Office/assets/sidebar.js"></script>
 		<script type="text/javascript">
 		    jQuery(function(){
 		        jQuery(".utopia").validationEngine('attach', {promptPosition : "topLeft", scroll: false});
-		    })
+		    });	    
 		</script>
 	</body>
 </html>

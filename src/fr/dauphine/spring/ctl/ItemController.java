@@ -20,7 +20,7 @@ import fr.dauphine.spring.editor.CommandeEditor;
 import fr.dauphine.spring.editor.ProduitEditor;
 
 @Controller
-@RequestMapping("itemController")
+@RequestMapping("item")
 public class ItemController {
 
 	@Autowired
@@ -51,7 +51,7 @@ public class ItemController {
     	panier.viderPanier();
     	model.addAttribute("panier", panier);
 		model.addAttribute("produits", IndexController.getProduits());
-		return "redirect:./indexController.action";
+		return "redirect:/fo/action/index";
 	}
 
 	@InitBinder

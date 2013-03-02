@@ -38,8 +38,9 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 			
 			List<GrantedAuthority> authorithies = new ArrayList<GrantedAuthority>();
 			authorithies.add(gai);
-			return new UsernamePasswordAuthenticationToken(principal, password,
-					authorithies);
+			//return new UsernamePasswordAuthenticationToken(principal, password, authorithies);
+			return new CustomAuthenticationToken(u, principal, password, authorithies);
+			
 
 		}
 		throw new BadCredentialsException("Mauvaise authentification : "

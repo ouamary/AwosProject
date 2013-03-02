@@ -5,20 +5,20 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div id="left">
 	<h3>Rechercher</h3>
-	<form id="formRecherche" action="detailProduit.action" method="POST">
-		<input type="text" id="champRecherche" value="Saisie ici..." onblur="javascript:ecrireChampRecherche();" onfocus="javascript:viderChampRecherche();" />
+	<form id="formRecherche" action="searchController.action" method="POST">
+		<input type="text" size="30" id="champRecherche" name="search" value="Saisie ici..." onblur="javascript:ecrireChampRecherche();" onfocus="javascript:viderChampRecherche();" onkeyup="lookup(this.value);" />
+		<div id="suggestions"></div>
 		<input type="submit" value="OK"/>
+		<input type="hidden" value="Front" name="source"/>
 	</form>
 	
 	<h3>Nos produits</h3>
-	<c:forEach var="categorie" items="${produits.keySet()}">
-		<div class="_categorie">
-			<a href="detailCategorie.action?idC=${categorie.getId()}">Gamme ${categorie.getNom()}</a><br/>
-			<c:forEach var="produit" items="${produits.get(categorie)}">
-				<span class="_produit">
-					<a href="detailProduit.action?idP=${produit.getId()}&source=Front">${produit.getNom()}</a>
-				</span><br/>
-			</c:forEach>
-		</div>
-	</c:forEach>
+	<div id="panier">
+		<a href="detailPanier.action">Mon Panier</a><br/>
+		<c:forEach var="produit" items="${panier.getListeProduits()}">
+			<span class="_produit">
+				<a href="detailProduit.action?idP=${produit.getId()}&source=Front">${produit.getNom()}</a>
+			</span><br/>
+		</c:forEach>
+	</div>
 </div>

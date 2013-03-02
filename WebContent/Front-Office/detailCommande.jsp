@@ -27,7 +27,7 @@
 <title>AWOS Foods - Finaliser votre commande</title>
 </head>
 <body>
-	<div><jsp:include page="top.jsp" /></div>
+	<div><jsp:include page="header.jsp" /></div>
 	<div><jsp:include page="left.jsp" /></div>
 	<div id="container">
 		<div id="mainContent">
@@ -53,8 +53,7 @@
 			<input type="submit" value="Valider la commande" />
 			</form:form>
 		</div>
-	</div>	
-   	<div><jsp:include page="right.jsp" /></div>
+	</div>
   	<div><jsp:include page="footer.jsp"/></div>
 </body>
 </html>

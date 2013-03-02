@@ -28,7 +28,7 @@
 					<div class="utopia-widget-content">
 		
 						<div class="row-fluid">
-							<div class="span3 offset11">
+							<div>
 								<label>
 									<a class="btn" href="./Back-Office/artiste.action"> <i
 									class="icon-plus icon-white"></i> Ajouter
@@ -58,22 +58,35 @@
 											<tr>
 												<td><input class="chkbox" type="checkbox" name="checkboxes" value="${a.id}"></td>
 												<td>${a.nom}</td>
-												<td>${shortbio}...</td>
+												<td>
+													<c:choose>
+														<c:when test="${fn:length(a.bio)>100}">
+														${shortbio}...
+														</c:when>
+														<c:otherwise>
+														${a.bio}
+														</c:otherwise>
+													</c:choose>											
+												</td>
 												<td><a href="artiste.action?idA=${a.id}" class="btn edit">
 														<img src="Back-Office/assets/pencil.png" alt="Edit">
 													</a>
-													<a href="javascript:void(0)" class="btn addpic">
+													<a data-toggle="modal" data-target="#imageModal${a.id}" class="btn addpic">
 														<img src="Back-Office/assets/camera.png" alt="Add pic">
 													</a>
+													<div id="imageModal${a.id}" class="modal hide fade">
+														<div class="modal-body">
+															<img src="photoArtiste.action?id=${a.id}">
+														</div>
+													</div>									
 												</td>
 											</tr>
-										</c:forEach>
-			
+										</c:forEach>			
 									</tbody>
 								</table>
 			
-								<a class="btn btn-danger" href="javascript:adminForm.submit();"> <i
-									class="icon-trash icon-white"></i> Supprimer
+								<a class="btn btn-danger" href="javascript:adminForm.submit();"> 
+									<i class="icon-trash icon-white"></i> Supprimer
 								</a>
 								
 								</form:form>
@@ -87,5 +100,4 @@
 
     	</div>
 </div><!-- Maincontent end -->
-
 <jsp:include page="bottom.jsp"/>

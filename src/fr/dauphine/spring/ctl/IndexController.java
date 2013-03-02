@@ -20,7 +20,7 @@ import fr.dauphine.spring.dao.impl.ProduitDAO;
 import fr.dauphine.spring.forms.AdminForm;
 
 @Controller
-@RequestMapping("indexController")
+@RequestMapping("index")
 public class IndexController {
 	
 	@Autowired
@@ -84,7 +84,7 @@ public class IndexController {
 			}
 		}//*/
 		
-		return "redirect:indexController.action";
+		return "redirect:/fo/action/index";
     }
 	
 }

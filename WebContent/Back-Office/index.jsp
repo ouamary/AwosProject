@@ -15,8 +15,7 @@
         <jsp:include page="left.jsp"/>
 
         <!-- Body start -->
-        <div class="span10 body-container">
-
+        <div class="span10 body-container">        	
             <div class="row-fluid">
 
                 <div class="span6">

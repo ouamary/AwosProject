@@ -9,18 +9,22 @@
 	<span id="nombreArticles">${panier.getNbProduits()}</span> articles
 
 	<h3>Me connecter</h3>
-	Identifiant
-	<br>[	]
-	<br>Mot de passe
-	<br>[	]
-	<br>[Valider]
-
-	
-	<br><a href="#">Mot de passe oublié ?</a> <!-- Envoi d'un email-->
-	
-	<br>
-	<br><b>Pas de compte ?</b>
-	<br><a href="#">S'inscrire</a>
-
-
+	<form name="f" action="/AwosProject_FirstMerge_20130211/Front-Office/j_spring_security_check" method="post">
+		<label>Login</label>
+		<input type="text" name="j_username" />
+		<label>Mot de passe</label>
+		<input type="password" name="j_password" />
+		<ul>
+			<li>
+				<input type="submit" value="Se connecter" />
+				<input type="reset" />
+			</li>
+		</ul>
+		<label>
+			<a href="">Mot de passe oublié?</a>
+		</label>
+		<label>
+			<a href="">S'inscrire</a>
+		</label>
+	</form>
 </div>

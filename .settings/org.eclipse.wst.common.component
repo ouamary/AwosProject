@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-modules id="moduleCoreId" project-version="1.5.0">
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="AwosProject">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="AwosProject"/>
         <property name="java-output-path" value="/AwosProject/build/classes"/>
+        <property name="context-root" value="AwosProject"/>
     </wb-module>
 </project-modules>

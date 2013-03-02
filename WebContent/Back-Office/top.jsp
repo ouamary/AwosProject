@@ -36,6 +36,11 @@
             });
         });
     </script>
-
+    <style>
+		.modal{
+		    width: 180px!important;
+		    margin-left: -90px!important;
+		}
+    </style>
 </head>
 <body>

@@ -39,7 +39,7 @@
 					
 					                            <div class="controls">
 					                                <c:choose>
-														<c:when test="${artiste.getPhotoType()==''}">
+														<c:when test="${empty artiste.getPhotoType()}">
 															<img src="http://placehold.it/150/f1f1f1/6d6d6d&text=++++:)" />													
 														</c:when>
 														<c:otherwise>
@@ -196,4 +196,4 @@
 
 </div> <!-- end of container -->
 
-<jsp:include page="bottom.jsp"/>s
+<jsp:include page="bottom.jsp"/>
