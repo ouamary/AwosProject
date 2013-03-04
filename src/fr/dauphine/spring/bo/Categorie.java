@@ -6,10 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
 
 import org.hibernate.annotations.SQLDelete;
 

@@ -25,7 +25,7 @@ a, a:after {
 </head>
 <body>
 	<h2>Accueil</h2>
- 	<a href="Back-Office">Back Office</a>
+ 	<a href="bo">Back Office</a>
  	<a href="Front-Office">Front Office</a>
 </body>
 </html>

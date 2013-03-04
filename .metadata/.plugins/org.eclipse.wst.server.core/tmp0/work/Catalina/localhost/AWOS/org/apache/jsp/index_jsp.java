@@ -77,7 +77,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("\t<h2>Accueil</h2>\r\n");
-      out.write(" \t<a href=\"Back-Office\">Back Office</a>\r\n");
+      out.write(" \t<a href=\"bo\">Back Office</a>\r\n");
       out.write(" \t<a href=\"Front-Office\">Front Office</a>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");

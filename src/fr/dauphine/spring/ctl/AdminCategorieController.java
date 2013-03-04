@@ -27,11 +27,10 @@ public class AdminCategorieController {
 		List<Categorie> categories = cDAO.listeCategories();
 
 		model.addAttribute("categories", categories);
-		return "./Back-Office/adminCategorie";
+		return "./bo/adminCategorie";
 	}
 
-	/* Correspond à la validation du formulaire admin pour la suppression*/
-	@RequestMapping(method=RequestMethod.POST) // celle-ci les POST
+	@RequestMapping(method=RequestMethod.POST)
 	public String suppression(@RequestParam(value="checkboxes") String[] checkboxes, @ModelAttribute("adminForm") AdminForm admin, BindingResult result) throws Exception {
 
 		List<Categorie> categories = cDAO.get();
@@ -39,7 +38,7 @@ public class AdminCategorieController {
 		int j =0;
 
 		System.out.println(" --CBE->" + checkboxes);
-		//*
+
 		for(int i = 0; (i < categories.size()) && (j < checkboxes.length); i++){
 			c = categories.get(i);
 			if(c.getId().equals(checkboxes[j])){
@@ -48,7 +47,7 @@ public class AdminCategorieController {
 				cDAO.save(c);
 				System.out.println(c + " ");
 			}
-		}//*/
+		}
 		
 		return "redirect:/bo/action/admin/categorie";
     }

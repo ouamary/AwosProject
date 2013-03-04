@@ -13,33 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ImageHelper {
  
-	private static final int IMG_WIDTH = 200;
-	private static final int IMG_HEIGHT = 200;
- 
-	public static void main(String [] args){
- 
-	try{
- 
-		BufferedImage originalImage = ImageIO.read(new File("c:\\image\\mkyong.jpg"));
-		int type = originalImage.getType() == 0? BufferedImage.TYPE_INT_ARGB : originalImage.getType();
- 
-		BufferedImage resizeImageJpg = resizeImage(originalImage, type);
-		ImageIO.write(resizeImageJpg, "jpg", new File("c:\\image\\mkyong_jpg.jpg")); 
- 
-		BufferedImage resizeImagePng = resizeImage(originalImage, type);
-		ImageIO.write(resizeImagePng, "png", new File("c:\\image\\mkyong_png.jpg")); 
- 
-		BufferedImage resizeImageHintJpg = resizeImageWithHint(originalImage, type);
-		ImageIO.write(resizeImageHintJpg, "jpg", new File("c:\\image\\mkyong_hint_jpg.jpg")); 
- 
-		BufferedImage resizeImageHintPng = resizeImageWithHint(originalImage, type);
-		ImageIO.write(resizeImageHintPng, "png", new File("c:\\image\\mkyong_hint_png.jpg")); 
- 
-	}catch(IOException e){
-		System.out.println(e.getMessage());
-	}
- 
-    }
+	private static final int IMG_WIDTH = 150;
+	private static final int IMG_HEIGHT = 150;
  
 	public static BufferedImage resizeImage(BufferedImage originalImage, int type){
 		BufferedImage resizedImage = new BufferedImage(IMG_WIDTH, IMG_HEIGHT, type);

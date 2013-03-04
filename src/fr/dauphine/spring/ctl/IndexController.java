@@ -32,6 +32,9 @@ public class IndexController {
 	@Autowired
 	private Panier panier;
 	
+	private static boolean achatValide;
+	private static boolean achatAnnule;
+	
 	private static HashMap<Categorie, List<Produit>> produits;
 	
 	public static HashMap<Categorie, List<Produit>> getProduits() {
@@ -41,31 +44,40 @@ public class IndexController {
 	@RequestMapping(method=RequestMethod.GET)
 	public String affichage(ModelMap model) {
 		
-		// Création de l'objet final HashMap
 		HashMap<Categorie, List<Produit>> produits = new HashMap<Categorie,List<Produit>>();
-		// Récupération des catégories
 		List<Categorie> categories = cDAO.listeCategories();
-		// Liste de produits selon la catégorie
 		List<Produit> produitsDetail;
 		
 		for(int i = 0; i < categories.size(); i++){
-			// Récupération de la liste de produit selon la catégorie 'i'
 			produitsDetail = pDAO.listeProduits(categories.get(i).getId());
-			// Ajout de la liste au nom de catégorie correspondant
 			produits.put(categories.get(i), produitsDetail);
 		}
 		
 		IndexController.produits = produits;
 		
 		model.addAttribute("produits", produits);
-		panier.viderPanier();
+		model.addAttribute("categories", categories);
+		
+		if(panier.isEmpty())
+			panier.viderPanier();
+		
 		model.addAttribute("panier", panier);
 		
-		return "./Front-Office/index";
+		if(achatValide==true){
+			achatValide=false;
+			return "./fo/paiementValide";
+		}
+		
+		if(achatAnnule==true){
+			achatAnnule=false;
+			return "./fo/paiementAnnule";
+		}
+		
+		return "./fo/index";
 	}
 
-	/* Correspond Ã  la validation du formulaire admin pour la suppression*/
-	@RequestMapping(method=RequestMethod.POST) // celle-ci les POST
+
+	@RequestMapping(method=RequestMethod.POST)
 	public String suppression(@RequestParam(value="checkboxes") String[] checkboxes, @ModelAttribute("adminForm") AdminForm admin, BindingResult result) throws Exception {
 
 		List<Categorie> categories = cDAO.get();
@@ -82,9 +94,17 @@ public class IndexController {
 				cDAO.save(c);
 				System.out.println(c + " ");
 			}
-		}//*/
+		}
 		
 		return "redirect:/fo/action/index";
     }
+	
+	public static void setAchatValide(boolean b) {
+		achatValide = b;		
+	}
+	
+	public static void setAchatAnnule(boolean b) {
+		achatAnnule = b;		
+	}
 	
 }

@@ -37,6 +37,6 @@
 		<input type="button" value="Ajouter" onclick="location.href='produit.action'"/>
 		<input type="submit" value="Supprimer" />
 	</form:form>
-	<a href="Back-Office/accueil.jsp">Retour à l'accueil</a>
+	<a href="bo/accueil.jsp">Retour à l'accueil</a>
 </body>
 </html>

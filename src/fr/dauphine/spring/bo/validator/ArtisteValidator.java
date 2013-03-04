@@ -22,9 +22,7 @@ public class ArtisteValidator implements Validator {
 		}
 		else {
 			if (artiste.getNom() == null || artiste.getNom().equals("")) {
-				errors.rejectValue("nom", "Valeur manquante", null, "Merci de saisir un nom.");
-			} else if (artiste.getBio() == null || artiste.getBio().equals("") || artiste.getBio().length() > 255) {
-				errors.rejectValue("bio", "Valeur manquante", null, "Bio invalide");
+				errors.rejectValue("nom", "Valeur manquante", null, "Il faut saisir un nom");
 			}
 		}
 	}

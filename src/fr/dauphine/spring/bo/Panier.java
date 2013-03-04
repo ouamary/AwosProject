@@ -33,6 +33,8 @@ public class Panier  extends BO implements Serializable, Comparable {
 	}
 		
 	public boolean isEmpty(){
+		if(listeProduits == null)
+			return true;
 		return listeProduits.isEmpty();
 	}
 	
@@ -84,12 +86,12 @@ public class Panier  extends BO implements Serializable, Comparable {
 			int index = IndexOfItem(p);
 			Item pi = listeItems.get(index);
 			pi.setQuantite(pi.getQuantite()-1);
-			/*
+		
 			// TODO : Implémenter ou non?
 			if(pi.getQuantite() == 0){
-				this.listeItems.remove(pi);
-				this.listeProduits.remove(p);
-			}//*/
+				listeProduits.remove(pi.getProduit());
+				listeItems.remove(pi);
+			}
 		}
 	}
 
@@ -104,6 +106,8 @@ public class Panier  extends BO implements Serializable, Comparable {
 	}
 
 	private boolean existeProduit(Produit p) {
+		if(listeProduits == null)
+			viderPanier();
 		for(int i = 0; i < listeProduits.size(); i++){
 			if(listeProduits.get(i).getNom().equals(p.getNom()))
 				return true;

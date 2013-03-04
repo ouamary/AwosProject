@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="Back-Office/style.css" type="text/css" />
+	<link rel="stylesheet" href="bo/style.css" type="text/css" />
 	<title>Application Web Open Source</title>
 </head>
 <body>
@@ -33,6 +33,6 @@
 		<input type="button" value="Ajouter" onclick="location.href='client.action'"/>
 		<input type="submit" value="Supprimer" />
 	</form:form>
-	<a href="Back-Office/accueil.jsp">Retour à l'accueil</a>
+	<a href="bo/accueil.jsp">Retour à l'accueil</a>
 </body>
 </html>

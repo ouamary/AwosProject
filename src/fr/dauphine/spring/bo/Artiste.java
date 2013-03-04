@@ -7,10 +7,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.SQLDelete;
 @SuppressWarnings({ "serial", "rawtypes" })
@@ -26,19 +24,15 @@ public class Artiste extends BO implements Serializable, Comparable {
     @Column(length=100)
     private String photoType;
     
-    @ManyToMany(
-	    cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-	    mappedBy = "artistes",
-	    targetEntity = Produit.class
-    )
-	private List<Produit> discographie = new ArrayList<Produit>();
+    @OneToMany(cascade=(CascadeType.ALL), mappedBy="artiste")
+	private List<Produit> listeProduits = new ArrayList<Produit>();
 		
-	public void setDiscographie(List<Produit> discographie) {
-		this.discographie = discographie;
+	public void setListeProduits(List<Produit> listeProduits) {
+		this.listeProduits = listeProduits;
 	}
 	
-	public List<Produit> getDiscographie() {
-		return discographie;
+	public List<Produit> getListeProduits() {
+		return listeProduits;
 	}
 	
     public String getPhotoType() {

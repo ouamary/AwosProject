@@ -25,7 +25,7 @@ public class AjoutCategorieController {
 		model.addAttribute("categories", cDAO.listeCategories());
 		model.addAttribute("edit", 1);
 		
-		return "./Back-Office/ajoutCategorie";
+		return "./bo/ajoutCategorie";
 	}
 	
 	@RequestMapping(value="/categorie", method=RequestMethod.GET)
@@ -35,7 +35,7 @@ public class AjoutCategorieController {
 		model.addAttribute("categories", cDAO.listeCategories());
 		model.addAttribute("edit", 0);
 		
-		return "./Back-Office/ajoutCategorie";
+		return "./bo/ajoutCategorie";
 	}	
 	
 	@RequestMapping(value="/categorie", method=RequestMethod.POST)

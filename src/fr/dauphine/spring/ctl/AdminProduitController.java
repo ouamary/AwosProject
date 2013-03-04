@@ -27,7 +27,7 @@ public class AdminProduitController {
 		List produits = pDAO.listeProduits();
 		model.addAttribute("produits", produits);
 		model.addAttribute("adminForm", new AdminForm(produits));
-		return "./Back-Office/adminProduit";
+		return "./bo/adminProduit";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

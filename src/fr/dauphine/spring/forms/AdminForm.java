@@ -1,12 +1,10 @@
 package fr.dauphine.spring.forms;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import fr.dauphine.spring.bo.BO;
-import fr.dauphine.spring.bo.Client;
 
 public class AdminForm {
 

@@ -3,8 +3,11 @@
  */
 package fr.dauphine.spring.bo;
 
-import javax.persistence.*;
 import java.io.Serializable;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass()
 public class Persistent implements Serializable {

@@ -19,7 +19,6 @@ public class Commande extends Panier  {
     @PrimaryKeyJoinColumn
 	private Client client;
 	
-	// DateValidation : renseignée seulement au moment de la validation finale de la commande
 	private Date dateValidation;
 	
 	@Column
@@ -30,11 +29,7 @@ public class Commande extends Panier  {
 		this.setListeProduits(panier.getListeProduits());
 		this.setTotal(panier.getTotal());
 	}
-	
-	public Commande(){
 		
-	}
-	
 	public Client getClient() {
 		return client;
 	}

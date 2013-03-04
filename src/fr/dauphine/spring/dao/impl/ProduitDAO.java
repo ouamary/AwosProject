@@ -1,27 +1,23 @@
 package fr.dauphine.spring.dao.impl;
 
+import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.ServletRequestDataBinder;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 
-import fr.dauphine.spring.bo.Categorie;
+import fr.dauphine.spring.bo.Artiste;
 import fr.dauphine.spring.bo.Produit;
-import fr.dauphine.spring.editor.CategorieEditor;
 
 @Repository
 @Transactional
 public class ProduitDAO{
 	private SessionFactory sessionFactory;
 	private List<Produit> produits;	
+	private Date dateSortie;
 	
 	public ProduitDAO(){	}
 
@@ -43,6 +39,12 @@ public class ProduitDAO{
 	@Transactional(readOnly = true)
 	public List<Produit> getWithCategorieId(String categorieId) {
     	return (List<Produit>) getSession().createQuery("from Produit p where p.categorie.id='"+categorieId+ "' order by nom").list();
+	}
+    
+    @SuppressWarnings("unchecked")
+	@Transactional(readOnly = true)
+	public List<Artiste> getWithArtisteId(String artisteId) {
+    	return (List<Artiste>) getSession().createQuery("from Produit p where p.artiste.id='"+artisteId+ "' order by nom").list();
 	}
     
 	@Transactional(readOnly = true)
@@ -79,5 +81,18 @@ public class ProduitDAO{
 
 	public void setProduits(List<Produit> produits) {
 		this.produits = produits;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Produit> listeProduitsParChaineCherchee(String chaineCherchee) {
+    	return (List<Produit>) getSession().createQuery("from Produit p where p.nom LIKE '%" + chaineCherchee + "%' ORDER BY p.categorie.id").list();
+	}
+
+	public Date getDateSortie() {
+		return dateSortie;
+	}
+
+	public void setDateSortie(Date dateSortie) {
+		this.dateSortie = dateSortie;
 	}
 }

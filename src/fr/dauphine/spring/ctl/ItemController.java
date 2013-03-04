@@ -41,16 +41,17 @@ public class ItemController {
 	public String ajoutItems(ModelMap model){
 		System.out.println("CommandeListeItems null : "+commande.getListeItems()==null);
 		
-		//*
     	for(Item item : commande.getListeItems()){
     		item.setCommande(commande);
     		System.out.println("Nom produit : "+item.getProduit().getNom());
     		itemDAO.save(item);
-    	}//*/
+    	}
     	
     	panier.viderPanier();
     	model.addAttribute("panier", panier);
-		model.addAttribute("produits", IndexController.getProduits());
+
+    	IndexController.setAchatValide(true);
+    	
 		return "redirect:/fo/action/index";
 	}
 

@@ -22,29 +22,41 @@ public class AjoutClientController {
 	
 	@RequestMapping(value="/client/{id}", method=RequestMethod.GET)
 	public String edition(@PathVariable(value="id") String id, ModelMap model) {
-		model.addAttribute("client", new Client());
+		model.addAttribute("client", DAO.get(id));
 		model.addAttribute("clients", DAO.listeClients());
 		model.addAttribute("edit", 1);
 		
-		return "./Back-Office/ajoutClient";
+		return "./bo/ajoutClient";
 	}
 	
-	@RequestMapping(value="/client", method=RequestMethod.GET)
-	public String ajout(ModelMap model) {
-		model.addAttribute("client", new Client());
-		model.addAttribute("clients", DAO.listeClients());
-		model.addAttribute("edit", 0);
+	@RequestMapping(value="/client/{source}", method=RequestMethod.GET)
+	public String ajout(@PathVariable(value="source") String source, ModelMap model) {
+		String redirect;
 		
-		return "./Back-Office/ajoutClient";
+		model.addAttribute("client", new Client());
+		
+		if(source.equalsIgnoreCase("Back")){
+			model.addAttribute("clients", DAO.listeClients());
+			model.addAttribute("edit", 0);
+			redirect = "./bo/ajoutClient";
+		}
+		else
+			redirect = "./fo/login";
+		
+		return redirect;
 	}
 	
-	@RequestMapping(value="/client", method=RequestMethod.POST)
-	public String validation(@ModelAttribute("client") Client client, BindingResult result) throws Exception {
+	@RequestMapping(value="/client/{source}", method=RequestMethod.POST)
+	public String validation(@ModelAttribute("client") Client client, @PathVariable(value="source") String source, BindingResult result) throws Exception {
 		validator.validate(client, result);
 		if(result.hasErrors())
 			return "badclient";
+		
+		client.setRole("ROLE_CLIENT");
 		DAO.save(client);
-		//return "resultat";
-		return "redirect:/bo/action/admin/client";
+		
+		String redirect = (source.equals("Back") ? "redirect:/bo/action/admin/client":"redirect:/fo/action/index");
+
+		return redirect;
     }
 }

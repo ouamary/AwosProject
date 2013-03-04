@@ -22,18 +22,17 @@ public class AdminClientController {
 	@Autowired
 	private ClientDAO DAO;
 	
-	@RequestMapping(method=RequestMethod.GET) // AUTRE MAPPING : cette méthode prend les GET
+	@RequestMapping(method=RequestMethod.GET)
 	public String affichage(ModelMap model) {
 		List clients = DAO.listeClients();
 		model.addAttribute("clients", clients);
 		model.addAttribute("adminForm", new AdminForm(clients));
-		return "./Back-Office/adminClient";
+		return "./bo/adminClient";
 	}
 	
-	/* Correspond à la validation du formulaire admin pour la suppression*/
-	@RequestMapping(method=RequestMethod.POST) // celle-ci les POST
+	@RequestMapping(method=RequestMethod.POST)
 	public String suppression(@RequestParam(value="checkboxes") String[] checkboxes, @ModelAttribute("adminForm") AdminForm admin, BindingResult result) throws Exception {
-/*
+		/*
 		if(result.hasErrors())
 			return "badclient";
 		*/

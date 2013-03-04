@@ -23,9 +23,34 @@
     
     <!-- AJOUT DU 02/03/2013 -->
     <mvc:annotation-driven />
-	<mvc:resources mapping="/bo/assets/**" location="/Back-Office/assets/" />
-	<mvc:resources mapping="/fo/assets/**" location="/Front-Office/assets/" />
+	<mvc:resources mapping="/bo/assets/**" location="/bo/assets/" />
+	<mvc:resources mapping="/fo/assets/**" location="/bo/assets/" />
 	<!-- FIN AJOUT DU 02/03/2013 -->
+    
+    <!-- Configuration du mail sender -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="587"/>
+        <property name="username" value="sene.camille@gmail.com"/>
+        <property name="password" value="Salta_2012"/>
+        <property name="javaMailProperties">
+            <props>
+                <!-- Use SMTP transport protocol -->
+                <prop key="mail.transport.protocol">smtp</prop>
+                <!-- Use SMTP-AUTH to authenticate to SMTP server -->
+                <prop key="mail.smtp.auth">true</prop>
+                <!-- Use TLS to encrypt communication with SMTP server -->
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="alertMailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="noreply@awos-music.com"/>
+        <property name="to" value="sene.camille@gmail.com"/>
+        <property name="subject" value="Alert - Exception occurred. Please investigate"/>
+    </bean>
     
     <!-- Référencement d'une source de données -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -57,6 +82,8 @@
 				<value>fr.dauphine.spring.bo.Item</value>
 				<value>fr.dauphine.spring.bo.Administrateur</value>
 				<value>fr.dauphine.spring.bo.Artiste</value>
+				<value>fr.dauphine.spring.bo.Chanson</value>
+				<value>fr.dauphine.spring.bo.Album</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -126,6 +153,18 @@
 	</bean>
 	
 	<bean id="artisteDAO" class="fr.dauphine.spring.dao.impl.ArtisteDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="chansonDAO" class="fr.dauphine.spring.dao.impl.ChansonDAO">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property> 
+	</bean>
+	
+	<bean id="albumDAO" class="fr.dauphine.spring.dao.impl.AlbumDAO">
 		<property name="sessionFactory">
 			<ref local="sessionFactory"/>
 		</property> 

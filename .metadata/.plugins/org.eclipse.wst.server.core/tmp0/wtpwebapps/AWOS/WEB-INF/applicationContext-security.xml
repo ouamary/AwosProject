@@ -10,19 +10,19 @@
 		<authentication-provider ref="customAuthenticationProvider" />
 	</authentication-manager>
 
-	<http pattern="/Back-Office/login.jsp" security="none" />
+	<http pattern="/bo/login.jsp" security="none" />
 	
 	
-	<http pattern="/Back-Office/*" realm="Autorisations" access-denied-page="/Back-Office/deniedpage.xhtml">
+	<http pattern="/bo/*" realm="Autorisations" access-denied-page="/bo/deniedpage.xhtml">
 		<anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
-		<intercept-url pattern="/Back-Office/inscription.html" access="ROLE_ANONYMOUS,ROLE_SUPERADMIN" />
-		<intercept-url pattern="/Back-Office/inscription.jsp" access="ROLE_ANONYMOUS,ROLE_SUPERADMIN" />
-		<intercept-url pattern="/Back-Office/style.css" access="ROLE_ANONYMOUS,ROLE_SUPERADMIN"/>
-		<intercept-url pattern="/Back-Office/*" access="ROLE_SUPERADMIN" />
+		<intercept-url pattern="/bo/inscription.html" access="ROLE_ANONYMOUS,ROLE_SUPERADMIN" />
+		<intercept-url pattern="/bo/inscription.jsp" access="ROLE_ANONYMOUS,ROLE_SUPERADMIN" />
+		<intercept-url pattern="/bo/style.css" access="ROLE_ANONYMOUS,ROLE_SUPERADMIN"/>
+		<intercept-url pattern="/bo/*" access="ROLE_SUPERADMIN" />
 		<!-- <http-basic /> -->
-		<form-login login-processing-url="/Back-Office/j_spring_security_check" login-page="/Back-Office/login.jsp" default-target-url="/Back-Office/index.jsp" authentication-failure-url = "/Back-Office/login.jsp?login_error=1"
+		<form-login login-processing-url="/bo/j_spring_security_check" login-page="/bo/login.jsp" default-target-url="/bo/index.jsp" authentication-failure-url = "/bo/login.jsp?login_error=1"
 			always-use-default-target="true" />
-		<logout logout-success-url="/Back-Office/" logout-url="/Back-Office/logout.html" invalidate-session="true" />
+		<logout logout-success-url="/bo/" logout-url="/bo/logout.html" invalidate-session="true" />
 	</http>
 	
 	<http pattern="/Front-Office/login.jsp" security="none" />

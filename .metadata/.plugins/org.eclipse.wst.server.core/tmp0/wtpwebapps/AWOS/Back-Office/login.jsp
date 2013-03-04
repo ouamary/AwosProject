@@ -40,7 +40,7 @@
 					            Vos identifiants sont incorrects. Merci de réessayer.
 							</div>
 				     	</c:if>
-                        <form class="utopia" name="f" action="<c:url value="/Back-Office/j_spring_security_check"/>" method="post">
+                        <form class="utopia" name="f" action="<c:url value="/bo/j_spring_security_check"/>" method="post">
                             <label>Nom d'utilisateur:</label>
 							<input class="span12 utopia-fluid-input validate[required]" type="text" name="j_username" value="<c:if test="${not empty param.login_error}"><c:out value="${SPRING_SECURITY_LAST_USERNAME}"/></c:if>">
 							

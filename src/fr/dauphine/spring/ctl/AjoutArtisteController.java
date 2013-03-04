@@ -35,7 +35,7 @@ public class AjoutArtisteController {
 		model.addAttribute("edit", 1);
 		model.addAttribute("photo", new UploadItem());
 			
-		return "./Back-Office/ajoutArtiste";
+		return "./bo/ajoutArtiste";
 	}
 	
 	@RequestMapping(value="/artiste", method=RequestMethod.GET)
@@ -45,7 +45,7 @@ public class AjoutArtisteController {
 		model.addAttribute("artistes", DAO.listeArtistes());
 		model.addAttribute("edit", 0);
 		
-		return "./Back-Office/ajoutArtiste";
+		return "./bo/ajoutArtiste";
 	}
 	
 	@RequestMapping(value="/artiste", method=RequestMethod.POST)
@@ -66,8 +66,10 @@ public class AjoutArtisteController {
 		
 		if(result.hasErrors()) {
 			System.out.println(result.getAllErrors().get(0).toString());
-			return "./Back-Office/badclient";
+			return "./bo/badclient";
 		}
+		
+		artiste.setBio(artiste.getBio().substring(0,254));
 		
 		DAO.save(artiste);
 

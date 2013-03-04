@@ -33,25 +33,21 @@ public class DetailCommandeController {
 	private ClientDAO cDAO;
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String affichage(ModelMap model){
-		
+	public String affichage(ModelMap model){		
 		Commande commande = new Commande(panier);
 		model.addAttribute("panier", panier);
 		model.addAttribute("commande", commande);
-		model.addAttribute("produits", IndexController.getProduits());
-		return "./Front-Office/detailCommande";
+		return "./fo/detailCommande";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String validation(@ModelAttribute("commande") Commande commande, BindingResult result) throws Exception {
 		commande.setDateValidation(new Date());
-		// Essai bidon pour l'ajout du client
 		commande.setClient(cDAO.get().get(0));
 		commande.setListeItems(panier.getListeItems());
 		commande.setListeProduits(panier.getListeProduits());
 		commande.setTotal(panier.getTotal());
 		System.out.println("Ajout du client à la commande!");
-		// TODO : Pourquoi le champ Client (VARCHAR[255]) reste alors que la jointure marche?
 		comDAO.save(commande);		
 		ItemController.setCommande(commande);
 		return "redirect:/fo/action/item";

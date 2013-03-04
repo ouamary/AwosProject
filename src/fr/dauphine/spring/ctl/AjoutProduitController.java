@@ -18,11 +18,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import fr.dauphine.spring.bo.Album;
+import fr.dauphine.spring.bo.Artiste;
 import fr.dauphine.spring.bo.Categorie;
 import fr.dauphine.spring.bo.Panier;
 import fr.dauphine.spring.bo.Produit;
+import fr.dauphine.spring.dao.impl.AlbumDAO;
+import fr.dauphine.spring.dao.impl.ArtisteDAO;
 import fr.dauphine.spring.dao.impl.CategorieDAO;
+import fr.dauphine.spring.dao.impl.ChansonDAO;
 import fr.dauphine.spring.dao.impl.ProduitDAO;
+import fr.dauphine.spring.editor.AlbumEditor;
+import fr.dauphine.spring.editor.ArtisteEditor;
 import fr.dauphine.spring.editor.CategorieEditor;
 import fr.dauphine.spring.helper.ImageHelper;
 
@@ -31,9 +38,18 @@ public class AjoutProduitController {
 
 	@Autowired
 	private ProduitDAO pDAO;
+	
+	@Autowired
+	private ChansonDAO chansonDAO;
 
 	@Autowired
 	private CategorieDAO cDAO;
+	
+	@Autowired
+	private ArtisteDAO aDAO;
+	
+	@Autowired
+	private AlbumDAO albumDAO;
 
 	@Autowired
 	private Panier panier;
@@ -44,15 +60,25 @@ public class AjoutProduitController {
 	@RequestMapping(value="/produit/{id}/{source}", method=RequestMethod.GET)
 	public String edition(@PathVariable(value="id") String id, @PathVariable(value="source") String source, ModelMap model) {
 		List<Categorie> categories = cDAO.listeCategories();
-		String retour = "./Back-Office/ajoutProduit";
+		String retour = "./bo/ajoutProduit";
 		
 		if(source.equalsIgnoreCase("front")) {
-			model.addAttribute("panier", panier);
-			model.addAttribute("produits", IndexController.getProduits());
-			retour = "./Front-Office/detailProduit";
+			retour = "./fo/detailProduit";
 		}
 		
-		model.addAttribute("produit", pDAO.get(id));
+		model.addAttribute("panier", panier);
+		model.addAttribute("albums", albumDAO.get());
+		model.addAttribute("artistes", aDAO.get());
+		model.addAttribute("categorie", pDAO.get(id).getCategorie());
+		
+		Produit p = pDAO.get(id);
+		if(p.isTypeAlbum()){
+			model.addAttribute("produit", albumDAO.get(id));
+			model.addAttribute("chansons", chansonDAO.getWithAlbumId(id));
+		}
+		else
+			model.addAttribute("produit", chansonDAO.get(id));
+		
 		model.addAttribute("produits", pDAO.listeProduits());
 		model.addAttribute("categories", categories);
 		model.addAttribute("edit", 1);
@@ -69,7 +95,7 @@ public class AjoutProduitController {
 		model.addAttribute("categories", categories);
 		model.addAttribute("edit", 0);
 		
-		return "./Back-Office/ajoutProduit";
+		return "./bo/ajoutProduit";
 	}
 	
 	@RequestMapping(value="/produit", method=RequestMethod.POST)
@@ -98,6 +124,16 @@ public class AjoutProduitController {
 	@InitBinder
 	protected void initBinderCategorieId(WebDataBinder binder) throws Exception {
 		binder.registerCustomEditor(Categorie.class, "categorie", new CategorieEditor(cDAO));
+    }
+	
+	@InitBinder
+	protected void initBinderArtisteId(WebDataBinder binder) throws Exception {
+		binder.registerCustomEditor(Artiste.class, "artiste", new ArtisteEditor(aDAO));
+    }
+	
+	@InitBinder
+	protected void initBinderAlbumId(WebDataBinder binder) throws Exception {
+		binder.registerCustomEditor(Album.class, "album", new AlbumEditor(albumDAO));
     }
 	
 	public String getUploadFolderPath() {
